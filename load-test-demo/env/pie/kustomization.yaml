@@ -1,0 +1,22 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - ../../base
+
+namespace: vinobank
+
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+secretGenerator:
+  # core-bank-sim
+  - name: aws-credential
+    envs:
+      - aws.env
+  # core-bank-sim-j
+  # fund-transfer-k8s
+  - name: newrelic-license
+    envs:
+      - newrelic_lic.env
