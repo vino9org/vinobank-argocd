@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: corebanking-sim-j
+  name: core-banking-sim-j
 spec:
   selector:
     matchLabels:
-      app: corebanking-sim-j
+      app: core-banking-sim-j
   replicas: 1
   template:
     metadata:
       labels:
-        app: corebanking-sim-j
+        app: core-banking-sim-j
     spec:
       containers:
-      - name: corebanking-sim-j
+      - name: core-banking-sim-j
         image: ghcr.io/vino9org/core-banking-sim-j:1.0.0-SNAPSHOT
         imagePullPolicy: Always
         ports:
@@ -34,11 +34,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: corebanking-sim-j
+  name: core-banking-sim-j
 spec:
   type: ClusterIP
   selector:
-    app: corebanking-sim-j
+    app: core-banking-sim-j
   ports:
   - name: http
     port: 8080
