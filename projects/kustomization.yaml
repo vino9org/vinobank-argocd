@@ -1,0 +1,24 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+resources:
+  - load-test-demo.yaml
+
+namespace: argocd
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+secretGenerator:
+  - name: load-test-demo-git
+    envs:
+      - git_repo.env
+patches:
+  - patch: |-
+      apiVersion: v1
+      kind: Secret
+      metadata:
+        name: load-test-demo-git
+        labels:
+          argocd.argoproj.io/secret-type: repository
+
