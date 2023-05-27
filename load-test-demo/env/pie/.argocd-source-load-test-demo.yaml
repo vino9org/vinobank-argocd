@@ -1,0 +1,5 @@
+kustomize:
+  images:
+  - ghcr.io/vino9org/core-banking-sim-j@sha256:9ab723d33ed81dbd788630cfd690bbaa2175bf1b5f7f69efa42756180d1cb2bb
+  - ghcr.io/vino9org/fund-transfer@dummy
+  - ghcr.io/vino9org/core-banking-sim@sha256:8b305f67ab38516b9b6a6067c1f943cd5762c5d46379fcc0f89ab9adb4d03ead
