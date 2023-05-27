@@ -2,7 +2,7 @@ kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
 resources:
+  - redis
   - core-banking-sim
   - core-banking-sim-j
   - fund-transfer-k8s
-
