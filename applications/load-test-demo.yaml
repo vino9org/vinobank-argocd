@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: load-test-demo
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: simj=ghcr.io/vino9org/core-banking-sim-j:latest, transfer=ghcr.io/vino9org/fund-transfer:latest, simpy=ghcr.io/vino9org/core-banking-sim:latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/simpy.update-strategy: digest
+    argocd-image-updater.argoproj.io/simj.update-strategy: digest
+    argocd-image-updater.argoproj.io/transfer.update-strategy: digest
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/vino9org/vinobank-argocd.git"
+    path: load-test-demo/env/pie
+    targetRevision: develop
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: vinobank
+  syncPolicy:
+    syncOptions:
+      - PruneLast=true
+
