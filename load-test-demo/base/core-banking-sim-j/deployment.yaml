@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: core-banking-sim-j
-        image: ghcr.io/vino9org/core-banking-sim-j:1.0.0-SNAPSHOT
+        image: ghcr.io/vino9org/core-banking-sim-j:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
