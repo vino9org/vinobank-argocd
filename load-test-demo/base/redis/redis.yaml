@@ -33,14 +33,14 @@ spec:
             name: redis-config
             items:
             - key: redis.conf
-              path: redis.conf            
+              path: redis.conf
   volumeClaimTemplates:
     - metadata:
         name: redis-data
       spec:
-        accessModes: 
+        accessModes:
             - ReadWriteOnce
-        storageClassName: longhorn
+        storageClassName: local-path
         resources:
           requests:
             storage: 2Gi
@@ -58,4 +58,3 @@ spec:
     - protocol: TCP
       port: 6379
       targetPort: 6379
-  
